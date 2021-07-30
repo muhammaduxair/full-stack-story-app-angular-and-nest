@@ -1,0 +1,20 @@
+<div class="container-fluid p-3">
+  <div class="row py-2 px-1">
+    <h2>Wellcome {{ username }}</h2>
+  </div>
+  <div class="row p-3" *ngIf="!privateStories.length">
+    <h4>No Private Stories</h4>
+    <p>Please Add Public or Private Stories</p>
+  </div>
+  <div class="row py-2">
+    <div
+      *ngFor="let story of privateStories"
+      class="col col-12 col-md-6 col-lg-4 col-xl-4"
+    >
+      <app-story-comp
+        [story]="story"
+        (onDeleteStory)="deleteStory($event)"
+      ></app-story-comp>
+    </div>
+  </div>
+</div>

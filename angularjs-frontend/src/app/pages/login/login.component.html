@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center">
+  <div class="col-11 col-lg-7 col-xl-7 col-md-8 py-4">
+    <div *ngIf="this.invalidIndecator" class="alert alert-danger">
+      {{ invalidIndecator }}
+    </div>
+    <h1>Login</h1>
+    <hr />
+    <form class="g-3 m-0 p-0" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="row mt-2">
+        <div class="col">
+          <div>
+            <label for="exampleFormControlInput1" class="form-label"
+              >Enter Email</label
+            >
+            <input
+              type="email"
+              class="{{
+                loginForm.controls.email.touched &&
+                loginForm.controls.email.errors
+                  ? 'form-control is-invalid'
+                  : 'form-control'
+              }}"
+              id="exampleFormControlInput1"
+              autocomplete="off"
+              formControlName="email"
+            />
+            <div
+              *ngIf="
+                loginForm.controls.email.errors &&
+                loginForm.controls.email.touched
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="loginForm.controls.email.errors.required">
+                Email is Required
+              </div>
+              <div *ngIf="loginForm.controls.email.errors.email">
+                Please Enter Correct Email Adress
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div>
+          <label for="exampleFormControlInput2" class="form-label"
+            >Enter Password</label
+          >
+          <input
+            type="password"
+            class="{{
+              loginForm.controls.password.touched &&
+              loginForm.controls.password.errors
+                ? 'form-control is-invalid'
+                : 'form-control'
+            }}"
+            id="exampleFormControlInput2"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              loginForm.controls.password.errors &&
+              loginForm.controls.password.touched
+            "
+            class="invalid-feedback"
+          >
+            <div *ngIf="loginForm.controls.password.errors.required">
+              Password is Required
+            </div>
+            <div *ngIf="loginForm.controls.password.errors.minlength">
+              Please Enter minimum 8 character password
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mt-3 d-flex justify-content-between">
+        <a routerLink="/signup">Create Account</a>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

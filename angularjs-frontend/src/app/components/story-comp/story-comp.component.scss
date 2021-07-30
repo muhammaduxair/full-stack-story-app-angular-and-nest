@@ -1,0 +1,40 @@
+.story-container {
+  margin: 5px;
+  > div {
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    > h4 {
+      font-size: 22px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    > p {
+      font-size: 14px;
+    }
+    > div {
+      > p {
+        margin: 0;
+        align-self: flex-end;
+        font-size: 12px;
+        font-style: italic;
+      }
+    }
+    .del-bttn {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      cursor: pointer;
+      > i {
+        color: green;
+      }
+    }
+  }
+}
+.border-black {
+  border: 2px solid #212529;
+}
+.border-green {
+  border: 2px solid green;
+}

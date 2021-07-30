@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">STORIES APP</a>
+    <ul
+      *ngIf="this.loginStatus === true; else elseBlock"
+      class="navbar-nav flex-row"
+    >
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/"
+          >Public Feed</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLink="/private-stories"
+          >Private Stories</a
+        >
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-outline-light" routerLink="/addstory">
+          Add Story
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-outline-danger" (click)="logout()">Logut</button>
+      </li>
+    </ul>
+    <ng-template #elseBlock>
+      <ul style="list-style: none" class="navbar">
+        <li class="nav-item mx-1">
+          <a routerLink="/login" class="nav-link p-0">
+            <button class="btn btn-outline-primary">Login</button>
+          </a>
+        </li>
+        <li class="nav-item mx-1">
+          <a routerLink="/signup" class="nav-link p-0">
+            <button class="btn btn-outline-primary">Sign Up</button>
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</nav>

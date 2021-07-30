@@ -1,0 +1,17 @@
+<div class="container-fluid px-3 py-2">
+  <div class="row p-3" *ngIf="!publicStories.length">
+    <h4>No Public Stories Availible</h4>
+    <p>Please Add Public or Private Stories</p>
+  </div>
+  <div class="row">
+    <div
+      *ngFor="let story of publicStories"
+      class="col col-12 col-md-6 col-lg-4 col-xl-4 py-2"
+    >
+      <app-story-comp
+        [story]="story"
+        (onDeleteStory)="deleteStory($event)"
+      ></app-story-comp>
+    </div>
+  </div>
+</div>

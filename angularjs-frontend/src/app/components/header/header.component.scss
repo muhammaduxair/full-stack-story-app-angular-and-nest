@@ -1,0 +1,15 @@
+ul {
+  margin: 0;
+  > li {
+    > button {
+      margin: 0 5px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  ul {
+    > li {
+      margin: 0 10px;
+    }
+  }
+}

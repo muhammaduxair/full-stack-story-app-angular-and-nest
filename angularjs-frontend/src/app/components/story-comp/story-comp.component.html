@@ -1,0 +1,38 @@
+<div class="story-container">
+  <div class="{{ story.user_id === userID ? 'border-green' : 'border-black' }}">
+    <h4 class="{{ story.user_id === userID ? 'text-success' : 'text-dark' }}">
+      {{
+        story.title.length <= 40
+          ? story.title
+          : story.title.slice(0, 40) + " ..."
+      }}
+    </h4>
+    <p class="{{ story.user_id === userID ? 'text-success' : 'text-dark' }}">
+      {{ story.description.slice(0, 100) }}
+      ...
+    </p>
+    <div class="d-flex justify-content-between">
+      <p class="{{ story.user_id === userID ? 'text-success' : 'text-dark' }}">
+        {{ story.user_name }}
+      </p>
+      <a routerLink="{{ '/story/' + story._id }}">
+        <button
+          class="{{
+            story.user_id === userID
+              ? 'btn btn-sm btn-outline-success'
+              : 'btn btn-sm btn-outline-dark'
+          }}"
+        >
+          Read More
+        </button>
+      </a>
+    </div>
+    <div
+      *ngIf="story.user_id === userID"
+      class="del-bttn"
+      (click)="onDelete(story)"
+    >
+      <i class="bi bi-trash"></i>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf="this.storyData" class="container">
+  <div class="row pt-3 header">
+    <h2>{{ storyData.title }}</h2>
+    <p>Created at: {{ createdDate }}</p>
+  </div>
+  <div class="row py-3">
+    <p>{{ storyData.description }}</p>
+  </div>
+  <div class="row pt-3 footer">
+    <p>Author: {{ storyData.user_name }}</p>
+  </div>
+</div>
